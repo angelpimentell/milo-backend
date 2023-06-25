@@ -16,9 +16,15 @@ Including another URLconf
 from rest_framework import routers
 
 from sales.views.user_view_set import UserViewSet
+from sales.views.invoice_view_set import InvoiceViewSet
+from sales.views.cart_view_set import CartViewSet
+from stock.views.product_view_set import ProductViewSet
 
 router = routers.SimpleRouter()
 
 router.register(r'users', UserViewSet)
+router.register(r'invoices', InvoiceViewSet)
+router.register(r'carts', CartViewSet)
+router.register(r'products', ProductViewSet)
 
 urlpatterns = router.urls
