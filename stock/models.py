@@ -2,6 +2,7 @@ from django.db import models
 
 from constants import DECIMAL_PLACES, MAX_DIGITS
 
+
 class Product(models.Model):
     name = models.CharField(max_length=255)
     quantity = models.PositiveIntegerField()
