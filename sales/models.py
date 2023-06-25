@@ -29,4 +29,4 @@ class Invoice(models.Model):
     paid = models.BooleanField()
 
     class Meta:
-        db_table = "orders"
+        db_table = "invoices"
