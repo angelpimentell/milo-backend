@@ -1,6 +1,6 @@
 import factory
 
-from constants import NUMBER_DECIMALS
+from constants import DECIMAL_PLACES
 from sales.factories import CartFactory
 
 
@@ -10,7 +10,7 @@ class ProductFactory(factory.django.DjangoModelFactory):
 
     name = factory.Faker("name")
     quantity = factory.Faker("random_int", min=0, max=15)
-    price = factory.Faker("pydecimal", right_digits=NUMBER_DECIMALS)
+    price = factory.Faker("pydecimal", right_digits=DECIMAL_PLACES)
 
 
 class ProductCartFactory(factory.django.DjangoModelFactory):
@@ -27,4 +27,4 @@ class ProductInvoiceFactory(factory.django.DjangoModelFactory):
 
     product = factory.SubFactory(ProductFactory)
     cart = factory.SubFactory(CartFactory)
-    price = factory.Faker("pydecimal", right_digits=NUMBER_DECIMALS)
+    price = factory.Faker("pydecimal", right_digits=DECIMAL_PLACES)
