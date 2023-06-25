@@ -3,8 +3,8 @@ from django.db import models
 
 class Product(models.Model):
     name = models.CharField(max_length=255)
-    quantity = models.IntegerField()
-    price = models.FloatField()
+    quantity = models.PositiveIntegerField()
+    price = models.DecimalField()
 
     class Meta:
         db_table = "products"
@@ -21,7 +21,7 @@ class ProductCart(models.Model):
 class ProductInvoice(models.Model):
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
     cart = models.ForeignKey("sales.Invoice", on_delete=models.CASCADE)
-    price = models.FloatField()
+    price = models.DecimalField()
 
     class Meta:
         db_table = "products_invoices"
