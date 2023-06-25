@@ -38,6 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    'rest_framework',
+
     'sales',
     'stock',
 ]
@@ -129,3 +131,11 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # https://docs.djangoproject.com/en/4.2/topics/auth/customizing/#substituting-a-custom-user-model
 
 AUTH_USER_MODEL = "sales.User"
+
+# Control how many objects per page are returned
+# https://www.django-rest-framework.org/tutorial/quickstart/#pagination
+
+REST_FRAMEWORK = {
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+    'PAGE_SIZE': 10
+}
