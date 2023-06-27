@@ -11,6 +11,7 @@ class UserFactory(factory.django.DjangoModelFactory):
 
     name = factory.Faker("name")
     email = factory.Faker("email")
+    is_admin = factory.Faker("boolean")
     password = sha512("password".encode(STRING_ENCODING)).hexdigest()
 
 
