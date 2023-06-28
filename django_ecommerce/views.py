@@ -1,6 +1,6 @@
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from django.shortcuts import redirect
+from rest_framework import status
 from django.contrib.auth import authenticate, login
 
 
@@ -13,9 +13,9 @@ class LogInView(APIView):
 
         if user is not None:
             login(request, user)
-            return Response(status=200)
+            return Response(status=status.HTTP_200_OK)
         else:
-            return Response({"detail": "Invalid credentials."}, status=401)
+            return Response({"detail": "Invalid credentials."}, status=status.HTTP_401_UNAUTHORIZED)
 
 
 class LogOutView(APIView):
