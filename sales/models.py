@@ -1,6 +1,8 @@
 from django.db import models
 from django.contrib.auth.models import AbstractBaseUser
 
+from .managers import CustomUserManager
+
 
 class User(AbstractBaseUser):
     name = models.CharField(max_length=255)
@@ -8,6 +10,8 @@ class User(AbstractBaseUser):
     is_admin = models.BooleanField()
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+
+    objects = CustomUserManager()
 
     USERNAME_FIELD = 'email'
 
