@@ -1,8 +1,6 @@
-from hashlib import sha512
+from django.contrib.auth.hashers import make_password
 
 import factory
-
-from constants import STRING_ENCODING
 
 
 class UserFactory(factory.django.DjangoModelFactory):
@@ -12,7 +10,7 @@ class UserFactory(factory.django.DjangoModelFactory):
     name = factory.Faker("name")
     email = factory.Faker("email")
     is_admin = factory.Faker("boolean")
-    password = sha512("password".encode(STRING_ENCODING)).hexdigest()
+    password = make_password("password")
 
 
 class CartFactory(factory.django.DjangoModelFactory):
