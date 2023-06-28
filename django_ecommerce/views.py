@@ -22,7 +22,7 @@ class LogInView(APIView):
 class LogOutView(APIView):
     def post(self, request, format=None):
         try:
-            request.auth_token.delete()
+            request.user.auth_token.delete()
         except:
             pass
 
