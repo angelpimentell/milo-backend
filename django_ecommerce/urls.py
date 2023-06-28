@@ -20,7 +20,8 @@ from sales.views.user_view_set import UserViewSet
 from sales.views.invoice_view_set import InvoiceViewSet
 from sales.views.cart_view_set import CartViewSet
 from stock.views.product_view_set import ProductViewSet
-from .views import LoginView
+from .views import LogInView
+from .views import LogOutView
 
 router = routers.SimpleRouter()
 
@@ -29,10 +30,9 @@ router.register(r'invoices', InvoiceViewSet)
 router.register(r'carts', CartViewSet)
 router.register(r'products', ProductViewSet)
 
-
 urlpatterns = router.urls
 
 urlpatterns += [
-    path('login/', LoginView.as_view()),
+    path('login/', LogInView.as_view()),
+    path('logout/', LogOutView.as_view()),
 ]
-
