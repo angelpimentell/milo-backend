@@ -17,5 +17,3 @@ class CartViewSet(mixins.RetrieveModelMixin,
                   viewsets.ViewSet):
     queryset = Cart.objects.all()
     serializer_class = CartSerializer
-    permission_classes = [IsAuthenticated]
-    authentication_classes = [SessionAuthentication, BasicAuthentication]
