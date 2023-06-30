@@ -5,7 +5,7 @@ from django.contrib.auth.hashers import make_password
 class CustomUserManager(BaseUserManager):
     def _create_user(self, email, password, **extra_fields):
         """
-        Create and save a user with the given username, email, and password.
+        Create and save a user with the given email and password.
         """
         email = self.normalize_email(email)
 
