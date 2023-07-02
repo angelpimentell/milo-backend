@@ -9,7 +9,7 @@ class UserFactory(factory.django.DjangoModelFactory):
 
     name = factory.Faker("name")
     email = factory.Faker("email")
-    is_admin = factory.Faker("boolean")
+    is_superuser = factory.Faker("boolean")
     password = make_password("password")
 
 
