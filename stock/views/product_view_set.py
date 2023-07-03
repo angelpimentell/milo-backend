@@ -5,6 +5,7 @@ from rest_framework.permissions import IsAuthenticatedOrReadOnly
 
 from ..models import Product
 from ..serializers import ProductSerializer
+from ..permissions import ProductPermissions
 
 
 class ProductViewSet(mixins.RetrieveModelMixin,
@@ -16,4 +17,4 @@ class ProductViewSet(mixins.RetrieveModelMixin,
                      viewsets.ViewSet):
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
-    permission_classes = [IsAuthenticatedOrReadOnly]
+    permission_classes = [IsAuthenticatedOrReadOnly & ProductPermissions]
