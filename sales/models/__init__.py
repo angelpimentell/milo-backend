@@ -1,3 +1,3 @@
-from .user_model import User
-from .cart_model import Cart
-from .invoice_model import Invoice
+from .user import User
+from .cart import Cart
+from .invoice import Invoice
